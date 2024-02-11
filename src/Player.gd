@@ -5,8 +5,11 @@ var vel = Vector3()
 const MAX_SPEED = 5
 const ACCEL = 4.5
 
-var dir = Vector3()
+onready var collider = $Collider
+signal join_borg
 
+var dir = Vector3()
+var collected_collectable = 0
 const DEACCEL= 16
 const MAX_SLOPE_ANGLE = 40
 
@@ -18,6 +21,8 @@ var MOUSE_SENSITIVITY = 0.05
 func _ready():
 	camera = $CameraPivot/Camera
 	rotation_helper = $CameraPivot
+
+	collider.connect("area_entered", self, "on_area_entered")
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -88,3 +93,10 @@ func _input(event):
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
+
+
+func on_area_entered(area):
+	if area.is_in_group("Collectable"):
+		area.queue_free()
+		emit_signal("join_borg")
+		print("got cube")
