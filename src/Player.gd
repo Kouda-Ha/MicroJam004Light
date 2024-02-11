@@ -60,7 +60,7 @@ func process_movement(delta):
 	dir.y = 0
 	dir = dir.normalized()
 
-	vel.y += delta * GRAVITY
+	# vel.y += delta * GRAVITY
 
 	var hvel = vel
 	hvel.y = 0
