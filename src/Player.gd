@@ -25,7 +25,9 @@ func _physics_process(delta):
 	process_input(delta)
 	process_movement(delta)
 
+
 func process_input(delta):
+	
 	# Walking
 	dir = Vector3()
 	var cam_xform = camera.get_global_transform()
@@ -46,6 +48,7 @@ func process_input(delta):
 	# Basis vectors are already normalized.
 	dir += -cam_xform.basis.z * input_movement_vector.y
 	dir += cam_xform.basis.x * input_movement_vector.x
+	#-----------------------------------
 	
 	# ----------------------------------
 	# Capturing/Freeing the cursor

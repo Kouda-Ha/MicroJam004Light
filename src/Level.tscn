@@ -1,14 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/ tiles_navmesh.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Level.gd" type="Script" id=4]
+
+[sub_resource type="NavigationMesh" id=1]
 
 [node name="Level" type="Spatial"]
+script = ExtResource( 4 )
 
 [node name="Navigation" type="Navigation" parent="."]
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 1 )
 
 [node name="GridMap" type="GridMap" parent="Navigation/NavigationMeshInstance"]
 mesh_library = ExtResource( 1 )
@@ -20,8 +25,8 @@ __meta__ = {
 "_editor_floor_": Vector3( 0, -1, 0 )
 }
 
-[node name="Enemy" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 1.83559, 8 )
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1.83559, 11 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0.462201, 11 )
+
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0363, -0.0979776, 9.49362 )
