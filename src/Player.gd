@@ -2,7 +2,7 @@ extends KinematicBody
 
 const GRAVITY = -24.8
 var vel = Vector3()
-const MAX_SPEED = 20
+const MAX_SPEED = 5
 const ACCEL = 4.5
 
 var dir = Vector3()
@@ -26,8 +26,6 @@ func _physics_process(delta):
 	process_movement(delta)
 
 func process_input(delta):
-
-	# ----------------------------------
 	# Walking
 	dir = Vector3()
 	var cam_xform = camera.get_global_transform()
