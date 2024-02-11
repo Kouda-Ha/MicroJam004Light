@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/TileSet.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/SpotLight.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.184314, 0.772549, 0.380392, 1 )
 
 [node name="Level" type="Spatial"]
 
@@ -15,5 +20,53 @@ __meta__ = {
 "_editor_floor_": Vector3( 0, -3, 0 )
 }
 
+[node name="LightBox" type="Spatial" parent="GridMap"]
+
+[node name="SpotLight" parent="GridMap/LightBox" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 24.3681, -0.615139, 9.00659 )
+
+[node name="SpotLight2" parent="GridMap/LightBox" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 22.7261, -0.952797, 1.26538 )
+spot_range = 4.73086
+
+[node name="SpotLight3" parent="GridMap/LightBox" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.4346, -0.93661, -13.6506 )
+spot_range = 4.73086
+
+[node name="SpotLight8" parent="GridMap/LightBox" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.61391, -0.93661, -5.48907 )
+spot_range = 4.73086
+
+[node name="SpotLight9" parent="GridMap/LightBox" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.22777, -0.93661, -5.48907 )
+spot_range = 4.73086
+
+[node name="SpotLight10" parent="GridMap/LightBox" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.22777, -0.93661, 1.2883 )
+spot_range = 4.73086
+
+[node name="SpotLight11" parent="GridMap/LightBox" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 14.3817, -0.93661, 1.2883 )
+spot_range = 4.73086
+
+[node name="SpotLight4" parent="GridMap/LightBox" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -23.8121, 0.928362, -12.9394 )
+spot_range = 6.38019
+
+[node name="SpotLight7" parent="GridMap/LightBox" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -14.6549, 1.41336, -12.9394 )
+spot_range = 6.38019
+
+[node name="SpotLight5" parent="GridMap/LightBox" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -23.8121, 0.928362, -7.11778 )
+spot_range = 7.12532
+
+[node name="SpotLight6" parent="GridMap/LightBox" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21.5185, 3.25907, -2.70784 )
+spot_range = 9.25843
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0214, -3.16902, 12.8057 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
