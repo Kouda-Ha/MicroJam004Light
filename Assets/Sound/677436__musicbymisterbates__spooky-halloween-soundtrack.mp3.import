@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/677436__musicbymisterbates__spooky-halloween-soundtrack.mp3-de728103d2e0ef3645b3a3b13edbe775.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/677436__musicbymisterbates__spooky-halloween-soundtrack.mp3"
+dest_files=[ "res://.import/677436__musicbymisterbates__spooky-halloween-soundtrack.mp3-de728103d2e0ef3645b3a3b13edbe775.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
