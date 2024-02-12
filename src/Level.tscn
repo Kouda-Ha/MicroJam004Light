@@ -1,9 +1,29 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/TileSet.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/SpotLight.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Collectable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Sound/677436__musicbymisterbates__spooky-halloween-soundtrack.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sound/benotafraid.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Sound/follow the lights.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Sound/notouchy.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Sound/whynolisten.wav" type="AudioStream" id=9]
+
+[sub_resource type="SphereShape" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="PrismMesh" id=4]
+material = SubResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 5 )
+size = Vector3( 2.1, 2.1, 2.1 )
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -69,10 +89,70 @@ spot_range = 9.25843
 [node name="OrbContainer" type="Spatial" parent="GridMap"]
 
 [node name="Orb" parent="GridMap/OrbContainer" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.543, -2.28956, 5.2812 )
+transform = Transform( 0.694269, 0, 0.719716, 0, 1, 0, -0.719716, 0, 0.694269, -19.0457, -2.28956, -1.83294 )
+
+[node name="Orb2" parent="GridMap/OrbContainer" instance=ExtResource( 4 )]
+transform = Transform( 0.694269, 0, 0.719716, 0, 1, 0, -0.719716, 0, 0.694269, -17.149, -2.92893, 13.254 )
+
+[node name="KinematicBody" type="KinematicBody" parent="GridMap/OrbContainer/Orb2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="GridMap/OrbContainer/Orb2/KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35365, 0 )
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="GridMap/OrbContainer/Orb2/KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00117111, 1.98857, -0.0424905 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="GridMap/OrbContainer/Orb2"]
+mesh = SubResource( 6 )
+material/0 = null
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0214, -3.16902, 12.8057 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -25.0
+autoplay = true
+
+[node name="startInstructions" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+pitch_scale = 0.76
+autoplay = true
+
+[node name="nofearfollowsound1" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 0.694269, 0, 0.719716, 0, 1, 0, -0.719716, 0, 0.694269, 12.8533, -1.93933, 12.818 )
+stream = ExtResource( 7 )
+unit_db = 3.0
+unit_size = 2.0
+pitch_scale = 0.7
+autoplay = true
+
+[node name="nofearfollowsound2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 0.694269, 0, 0.719716, 0, 1, 0, -0.719716, 0, 0.694269, 17.2706, -1.93933, -15.8844 )
+stream = ExtResource( 7 )
+unit_db = 5.0
+unit_size = 2.3
+pitch_scale = 0.75
+autoplay = true
+
+[node name="whynolisttensound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 0.694269, 0, 0.719716, 0, 1, 0, -0.719716, 0, 0.694269, -8.09966, -1.93933, 1.02657 )
+stream = ExtResource( 9 )
+unit_db = 10.517
+unit_size = 3.8
+pitch_scale = 0.75
+autoplay = true
+
+[node name="notouchysound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 0.694269, 0, 0.719716, 0, 1, 0, -0.719716, 0, 0.694269, -14.4345, -1.93933, 13.9363 )
+stream = ExtResource( 8 )
+unit_db = 10.517
+unit_size = 3.8
+pitch_scale = 0.78
+autoplay = true

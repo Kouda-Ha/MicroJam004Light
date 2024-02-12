@@ -6,6 +6,8 @@ const MAX_SPEED = 5
 const ACCEL = 4.5
 
 onready var collider = $Collider
+onready var playerfeet = $PlayerFeet
+
 signal orb_collected
 
 var dir = Vector3()
@@ -15,6 +17,7 @@ const MAX_SLOPE_ANGLE = 40
 
 var camera
 var rotation_helper
+var walking = false
 
 var MOUSE_SENSITIVITY = 0.05
 
@@ -47,6 +50,16 @@ func process_input(delta):
 		input_movement_vector.x += 1
 
 	input_movement_vector = input_movement_vector.normalized()
+
+	if input_movement_vector.x != 0 or input_movement_vector.y != 0:
+		walking = true
+	else:
+		walking = false
+
+	if walking and !playerfeet.playing:
+		playerfeet.play()
+	if not walking and playerfeet.playing:
+		playerfeet.stop()
 
 	# Basis vectors are already normalized.
 	dir += -cam_xform.basis.z * input_movement_vector.y
@@ -94,9 +107,12 @@ func _input(event):
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
 
+#export (PackedScene) var game_scene = null
 
 func on_area_entered(area):
 	if area.is_in_group("Orb"):
 		area.queue_free()
 		emit_signal("orb_collected")
 		print("got cubeeee")
+		# game quits when got cube
+		get_tree().quit()

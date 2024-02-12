@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/follow the lights.wav-eb033d0abcb5e4bbaa21627b13168c20.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/follow the lights.wav"
+dest_files=[ "res://.import/follow the lights.wav-eb033d0abcb5e4bbaa21627b13168c20.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
