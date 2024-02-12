@@ -6,7 +6,7 @@ const MAX_SPEED = 5
 const ACCEL = 4.5
 
 onready var collider = $Collider
-signal join_borg
+signal orb_collected
 
 var dir = Vector3()
 var collected_collectable = 0
@@ -96,7 +96,7 @@ func _input(event):
 
 
 func on_area_entered(area):
-	if area.is_in_group("Collectable"):
+	if area.is_in_group("Orb"):
 		area.queue_free()
-		emit_signal("join_borg")
-		print("got cube")
+		emit_signal("orb_collected")
+		print("got cubeeee")

@@ -66,9 +66,9 @@ spot_range = 7.12532
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -21.5185, 3.25907, -2.70784 )
 spot_range = 9.25843
 
-[node name="BorgContainer" type="Spatial" parent="GridMap"]
+[node name="OrbContainer" type="Spatial" parent="GridMap"]
 
-[node name="Collectable" parent="GridMap/BorgContainer" instance=ExtResource( 4 )]
+[node name="Orb" parent="GridMap/OrbContainer" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.543, -2.28956, 5.2812 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]

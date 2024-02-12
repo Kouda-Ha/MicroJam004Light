@@ -41,7 +41,7 @@ tracks/1/keys = {
 }
 
 [node name="Collectable" type="Area" groups=[
-"Collectable",
+"Orb",
 ]]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
