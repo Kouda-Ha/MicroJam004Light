@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sound/feets.wav" type="AudioStream" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -27,3 +28,8 @@ current = true
 [node name="CollisionShape" type="CollisionShape" parent="Collider"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.868881, 0 )
 shape = SubResource( 2 )
+
+[node name="PlayerFeet" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
