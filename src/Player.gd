@@ -107,9 +107,12 @@ func _input(event):
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
 
+#export (PackedScene) var game_scene = null
 
 func on_area_entered(area):
 	if area.is_in_group("Orb"):
 		area.queue_free()
 		emit_signal("orb_collected")
 		print("got cubeeee")
+		# game quits when got cube
+		get_tree().quit()

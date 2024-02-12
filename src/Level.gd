@@ -15,3 +15,5 @@ func on_orb_collected():
 	collected_orbs += 1
 	if collected_orbs >= total_orb_count:
 		print("Resistance is futile! Welcome Borg fren!!!!!")
+
+

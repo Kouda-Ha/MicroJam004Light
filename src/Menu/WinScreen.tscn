@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Fonts/Default_dynamicfont.tres" type="DynamicFont" id=1]
+
+[node name="WinScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.24268
+margin_right = 4.24268
+color = Color( 0.0117647, 0.247059, 0.0431373, 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.113
+anchor_top = 0.153
+anchor_right = 0.936
+anchor_bottom = 0.365
+margin_left = 0.25354
+margin_top = 0.123863
+margin_right = -0.498474
+margin_bottom = -0.0761261
+custom_fonts/font = ExtResource( 1 )
+text = "RESISTANCE WAS FUTILE, 
+YOU MADE THE CORRECT CHOICE."
+align = 1
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.348
+anchor_top = 0.625
+anchor_right = 0.673
+anchor_bottom = 0.852
+margin_left = 0.388031
+margin_top = -0.0882568
+margin_right = -0.411987
+margin_bottom = -0.2883
+custom_fonts/font = ExtResource( 1 )
+text = "ACCEPTANCE"
+__meta__ = {
+"_edit_use_anchors_": false
+}

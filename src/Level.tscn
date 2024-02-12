@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/TileSet.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/SpotLight.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Collectable.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Sound/677436__musicbymisterbates__spooky-halloween-soundtrack.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sound/benotafraid.wav" type="AudioStream" id=6]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -81,4 +82,8 @@ environment = SubResource( 1 )
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -25.0
+autoplay = true
+
+[node name="startInstructions" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 autoplay = true
